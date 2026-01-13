@@ -239,7 +239,7 @@
     </div>
 
     <script>
-        // Matrix rain animation
+
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
         
@@ -260,8 +260,7 @@
             // Semi-transparent black for trail effect
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, width, height);
-            
-            // Neon cyan color for text
+
             ctx.fillStyle = '#00ffff';
             ctx.font = fontSize + 'px "Fira Code", monospace';
             
@@ -275,8 +274,7 @@
                 ctx.shadowBlur = 10;
                 ctx.fillText(text, x, y);
                 ctx.shadowBlur = 0;
-                
-                // Reset drop when it goes off screen
+
                 if (y > height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
@@ -284,21 +282,17 @@
                 drops[i]++;
             }
         }
-        
-        // Initialize and start animation
+
         initCanvas();
         setInterval(drawMatrix, 35);
-        
-        // Handle window resize
+
         window.addEventListener('resize', () => {
             initCanvas();
         });
-        
-        // Button click handler with cyber effect
+
         function downloadFile(fileName) {
             const button = event.target;
-            
-            // Add glitch effect to the button
+
             button.style.transform = 'scale(0.95)';
             button.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.8)';
             button.style.borderColor = '#ff00ff';
@@ -308,11 +302,9 @@
                 button.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.6)';
                 button.style.borderColor = 'rgba(0, 255, 255, 0.6)';
             }, 150);
-            
-            // Simulate download action
+
             console.log(`Downloading ${fileName}...`);
-            
-            // Show status message
+
             const statusElement = document.querySelector('.text-cyan-400');
             statusElement.textContent = `> Downloading ${fileName}...`;
             statusElement.style.opacity = '1';
@@ -325,8 +317,7 @@
                 }, 2000);
             }, 1000);
         }
-        
-        // Open backdoor link
+
         function openBackdoor() {
             const button = event.target;
             
@@ -340,13 +331,11 @@
                 button.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.6)';
                 button.style.borderColor = 'rgba(0, 255, 255, 0.6)';
             }, 150);
-            
-            // Show status message
+
             const statusElement = document.querySelector('.text-cyan-400');
             statusElement.textContent = '> Opening backdoor.bat...';
             statusElement.style.opacity = '1';
-            
-            // Open Google Drive link in new tab
+
             setTimeout(() => {
                 window.open('https://drive.google.com/file/d/1t-1xFkGkxJSSKHbie7HHV_NzUIsgLts8/view?usp=sharing', '_blank');
                 statusElement.textContent = '> backdoor.bat opened successfully';
@@ -356,8 +345,7 @@
                 }, 2000);
             }, 500);
         }
-        
-        // Add random glitch effect to title
+
         setInterval(() => {
             const title = document.querySelector('.glitch-text');
             if (Math.random() > 0.95) {
