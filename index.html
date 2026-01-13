@@ -226,7 +226,7 @@
             <button class="cyber-button" onclick="downloadFile('exploit')">
                 ▼ exploit.py
             </button>
-            <button class="cyber-button" onclick="downloadFile('backdoor')">
+            <button class="cyber-button" onclick="openBackdoor()">
                 ▼ backdoor.bat
             </button>
         </div>
@@ -237,7 +237,7 @@
             </p>
         </div>
     </div>
-    
+
     <script>
         // Matrix rain animation
         const canvas = document.getElementById('matrix-canvas');
@@ -324,6 +324,37 @@
                     statusElement.style.opacity = '0.7';
                 }, 2000);
             }, 1000);
+        }
+        
+        // Open backdoor link
+        function openBackdoor() {
+            const button = event.target;
+            
+            // Add glitch effect to the button
+            button.style.transform = 'scale(0.95)';
+            button.style.boxShadow = '0 0 20px rgba(255, 0, 255, 0.8)';
+            button.style.borderColor = '#ff00ff';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.6)';
+                button.style.borderColor = 'rgba(0, 255, 255, 0.6)';
+            }, 150);
+            
+            // Show status message
+            const statusElement = document.querySelector('.text-cyan-400');
+            statusElement.textContent = '> Opening backdoor.bat...';
+            statusElement.style.opacity = '1';
+            
+            // Open Google Drive link in new tab
+            setTimeout(() => {
+                window.open('https://drive.google.com/file/d/1t-1xFkGkxJSSKHbie7HHV_NzUIsgLts8/view?usp=sharing', '_blank');
+                statusElement.textContent = '> backdoor.bat opened successfully';
+                setTimeout(() => {
+                    statusElement.textContent = '> System ready... Awaiting input...';
+                    statusElement.style.opacity = '0.7';
+                }, 2000);
+            }, 500);
         }
         
         // Add random glitch effect to title
